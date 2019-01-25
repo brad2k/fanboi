@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Show from "../pages/Show";
+import Content from "../components/content";
 
 const API_KEY = "2490536e";
 
@@ -31,7 +32,13 @@ class ShowContainer extends Component {
     render() {
         const { isLoading, show } = this.state;
 
-        return !isLoading ? <Show show={show} /> : <p>Loading…</p>;
+        return !isLoading ? (
+            <Show show={show} />
+        ) : (
+            <Content>
+                <p>Loading…</p>
+            </Content>
+        );
     }
 }
 

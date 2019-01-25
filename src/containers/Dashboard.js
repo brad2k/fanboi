@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Dashboard from "../pages/Dashboard";
+import Content from "../components/content";
 
 const API_KEY = "2490536e";
 const showIds = [
@@ -90,7 +91,9 @@ class DashboardContainer extends Component {
         return !isLoading ? (
             <Dashboard shows={shows} filters={filters} />
         ) : (
-            <p>Loading…</p>
+            <Content>
+                <p>Loading…</p>
+            </Content>
         );
     }
 }

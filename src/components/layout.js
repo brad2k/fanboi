@@ -1,5 +1,13 @@
 import React, { Fragment } from "react";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { node } from "prop-types";
+
+const theme = {
+    blue: "#60a3bc",
+    pink: "#b71540",
+    grey: "#444",
+    text: "#000"
+};
 
 const GlobalStyles = createGlobalStyle`
     html {
@@ -25,10 +33,16 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const Layout = ({ children }) => (
-    <Fragment>
-        <GlobalStyles />
-        {children}
-    </Fragment>
+    <ThemeProvider theme={theme}>
+        <Fragment>
+            <GlobalStyles />
+            {children}
+        </Fragment>
+    </ThemeProvider>
 );
+
+Layout.propTypes = {
+    children: node.isRequired
+};
 
 export default Layout;

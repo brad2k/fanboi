@@ -5,11 +5,11 @@ import { navigate } from "@reach/router";
 
 const ShowLayout = styled.div`
     display: grid;
-    grid-template-columns: 20rem 1fr;
+    grid-template-columns: 15rem 1fr;
     grid-column-gap: 2rem;
     background-color: #efefef;
     border: 1px solid #e3e3e3;
-    border-bottom: 3px solid #b71540;
+    border-bottom: 3px solid ${props => props.theme.pink};
     cursor: pointer;
     transition: all 200ms ease-out;
     padding: 2rem;
@@ -39,7 +39,7 @@ const ShowDesc = styled.p`
 
 const ShowDetails = styled.p`
     font-size: 1.2rem;
-    color: #333;
+    color: ${props => props.theme.grey};
 `;
 
 const ShowInfo = styled.div`

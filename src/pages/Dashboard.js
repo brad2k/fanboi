@@ -32,11 +32,13 @@ class Dashboard extends React.Component {
             activeFilters = activeFilters.filter(item => item !== val);
         }
 
+        const showsOnDisplay = this.props.shows.filter(show => {
+            return show.data.Genre.split(", ").some(genre => activeFilters.includes(genre));
+        });
+
         this.setState({
             activeFilters,
-            showsOnDisplay: this.props.shows.filter(
-                show => !this.state.activeFilters.includes(show.data.Genre)
-            )
+            showsOnDisplay
         });
     };
 
